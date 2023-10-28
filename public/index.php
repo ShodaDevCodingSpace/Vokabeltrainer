@@ -10,3 +10,7 @@ include_once '../system.php';
 define('SYSTEM_END', round(microtime(true) - SYSTEM_START,4));
 
 include_once BASE_PATH.'router/index.php';
+include_once BASE_PATH.'app/ConnectDB.php';
+
+$db = new MySQL();
+$mysql = $db->getConnection();
