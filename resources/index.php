@@ -13,7 +13,7 @@ $vocabid = null;
 
 if (isset($_SESSION['usedIds'])) {
     do {
-        $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations WHERE id NOT IN (" . implode(",", $_SESSION['usedIds']) . ") ORDER BY RAND() LIMIT 1";
+        $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations WHERE id NOT IN (" . implode(',', $_SESSION['usedIds']) . ") ORDER BY RAND() LIMIT 1";
         $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
         $SQL_GET_RANDOM_VOCAB->execute();
         $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
