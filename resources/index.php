@@ -1,29 +1,35 @@
 <?php
-include_once BASE_PATH.'app/ConnectDB.php';
+include_once BASE_PATH . 'app/ConnectDB.php';
+
+// Starte die Session
+session_start();
 
 $db = new MySQL();
 $mysql = $db->getConnection();
 
-$SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 1"; // Der SQL-Query war fehlerhaft.
-$SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
-$SQL_GET_RANDOM_VOCAB->execute();
+if ($mysql) {
+    $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 1";
+    $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
+    $SQL_GET_RANDOM_VOCAB->execute();
 
-$maxId = $SQL_GET_RANDOM_VOCAB->rowCount();
+    $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
-$_SESSION['maxId'] = $maxId;
-$_SESSION['usedIds'] = array();
+    if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
+        while ($row = $SQL_GET_RANDOM_VOCAB->fetch()) {
+            $german = $row["german_translation"];
+            $english = $row["english_term"];
+            $id = $row['id'];
+            echo $english;
 
-if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
-    while ($row = $SQL_GET_RANDOM_VOCAB->fetch()) { // Du musst "fetch" verwenden, nicht "fetch_assoc".
-        $german = $row["german_translation"]; // Der Spaltenname war fehlerhaft.
-        $english = $row["english_term"];
-        $id = $row['id'];
-        echo $english;
-
-        array_push($_SESSION['usedIds'], $id);
+            array_push($_SESSION['usedIds'], $id);
+        }
+    } else {
+        echo "Keine Vokabeln gefunden.";
     }
+
+    $_SESSION['maxId'] = count($_SESSION['usedIds']);
 } else {
-    echo "Keine Vokabeln gefunden.";
+    echo "Datenbankverbindung fehlgeschlagen.";
 }
 ?>
 <h1>Vokabeltrainer</h1>
