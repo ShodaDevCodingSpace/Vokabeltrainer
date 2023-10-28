@@ -11,7 +11,7 @@ $mysql = $db->getConnection();
 $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
 $vocabid = null;
-$totalVocabCount = 10; // Annahme: Du möchtest insgesamt 10 Vokabeln verwenden.
+$totalVocabCount = 9; // Annahme: Du möchtest insgesamt 10 Vokabeln verwenden.
 
 if (count($_SESSION['usedIds']) < $totalVocabCount) {
    do {
