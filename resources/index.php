@@ -15,7 +15,16 @@ $mysql = $db->getConnection();
     $vocabid = $vocab['id'];
     if(isset($_SESSION['usedIds'])) {
         if (in_array($vocabid, $_SESSION['usedIds'])) {
-            echo "Vokabel schon benutzt";
+            //loop (get new vocab)
+            $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 1";
+            $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
+            $SQL_GET_RANDOM_VOCAB->execute();
+            $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
+            $vocabid = $vocab['id'];
+            echo $vocab['english_term'];
+
+            
+
         } else {
             echo $vocab['english_term'];
         }
