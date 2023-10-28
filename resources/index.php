@@ -12,10 +12,11 @@ $mysql = $db->getConnection();
        while($row = $SQL_GET_RANDOM_VOCAB->fetch_assoc()) {
            $german = $row["german_translations"];
            $english = $row["english_term"];
+           echo $english;
          }
    } else {
        echo "Keine Vokabeln gefunden.";
    }
 ?>
 <h1>Vokabeltrainer</h1>
-<?= $english ?>
+<?= $english; ?>
