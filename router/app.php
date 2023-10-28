@@ -5,6 +5,5 @@ $router = new Router();
 
 $router->register('/', new BaseController('index'), 'GET');
 
-$router->register('/testing', new BaseController('test'), 'GET');
 
 return $router;
