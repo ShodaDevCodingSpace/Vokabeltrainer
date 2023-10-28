@@ -4,7 +4,7 @@ include_once BASE_PATH.'app/ConnectDB.php';
 $db = new MySQL();
 $mysql = $db->getConnection();
 
-$SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 10"; // Der SQL-Query war fehlerhaft.
+$SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 1"; // Der SQL-Query war fehlerhaft.
 $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
 $SQL_GET_RANDOM_VOCAB->execute();
 
