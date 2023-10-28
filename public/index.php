@@ -10,3 +10,5 @@ include_once '../system.php';
 define('SYSTEM_END', round(microtime(true) - SYSTEM_START,4));
 
 include_once BASE_PATH.'router/index.php';
+
+session_start();
