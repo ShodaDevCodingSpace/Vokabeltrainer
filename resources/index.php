@@ -16,7 +16,7 @@ if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
     while ($row = $SQL_GET_RANDOM_VOCAB->fetch()) { // Du musst "fetch" verwenden, nicht "fetch_assoc".
         $german = $row["german_translation"]; // Der Spaltenname war fehlerhaft.
         $english = $row["english_term"];
-        $id = $row['id']:
+        $id = $row['id'];
         echo $english;
 
         $usedIds->push($id);
