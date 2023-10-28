@@ -24,14 +24,14 @@
             $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
             $vocabid = $vocab['id'];
             echo $vocab['english_term'];
-            array_push($_SESSION['usedIds'], $id);
+            array_push($_SESSION['usedIds'], $vocabid);
         } else {
             echo $vocab['english_term'];
-            array_push($_SESSION['usedIds'], $id);
+            array_push($_SESSION['usedIds'], $vocabid);
         }
     } else {
       echo $vocab['english_term'];
-      array_push($_SESSION['usedIds'], $id);
+      array_push($_SESSION['usedIds'], $vocabid);
    }
 ?>
 <h1>Vokabeltrainer</h1>
