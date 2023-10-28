@@ -31,7 +31,7 @@ if (count($_SESSION['usedIds']) < $totalVocabCount) {
    } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
 }
 
-if (count($_SESSION['usedIds']) >= $totalVocabCount) {
+if (count($_SESSION['usedIds']) = $totalVocabCount) {
     echo "Alle Vokabeln wurden verwendet.";
 }
 ?>
