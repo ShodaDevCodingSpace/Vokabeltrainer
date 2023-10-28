@@ -8,15 +8,7 @@ $mysql = $db->getConnection();
    $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
    $SQL_GET_RANDOM_VOCAB->execute();
    
-   if ($SQL_GET_RANDOM_VOCAB->num_rows > 0) {
-       while($row = $SQL_GET_RANDOM_VOCAB->fetch_assoc()) {
-           $german = $row["german_translations"];
-           $english = $row["english_term"];
-           echo $english;
-         }
-   } else {
-       echo "Keine Vokabeln gefunden.";
-   }
+   echo $SQL_GET_RANDOM_VOCAB->num_rows;
 ?>
 <h1>Vokabeltrainer</h1>
 <?= $english; ?>
