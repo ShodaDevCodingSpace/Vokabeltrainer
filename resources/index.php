@@ -17,11 +17,11 @@ $mysql = $db->getConnection();
         if (in_array($vocabid, $_SESSION['usedIds'])) {
             echo "Vokabel schon benutzt";
         } else {
-            echo "Vokabel noch nicht benutzt";
+            echo $vocab['english_term'];
         }
     } else {
-        echo "Vokabel noch nicht benutzt";
-    }
+      echo $vocab['english_term'];
+   }
 
 
     $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
