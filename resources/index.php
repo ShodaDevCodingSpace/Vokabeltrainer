@@ -11,6 +11,19 @@ $mysql = $db->getConnection();
     $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
     $SQL_GET_RANDOM_VOCAB->execute();
 
+    $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
+    $vocabid = $vocab['id'];
+    if(isset($_SESSION['usedIds'])) {
+        if (in_array($vocabid, $_SESSION['usedIds'])) {
+            echo "Vokabel schon benutzt";
+        } else {
+            echo "Vokabel noch nicht benutzt";
+        }
+    } else {
+        echo "Vokabel noch nicht benutzt";
+    }
+
+
     $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
     if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
