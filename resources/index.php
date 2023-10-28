@@ -15,11 +15,7 @@ $totalVocabCount = 10; // Annahme: Du möchtest insgesamt 10 Vokabeln verwenden.
 
 if (count($_SESSION['usedIds']) < $totalVocabCount) {
     do {
-        // Erzeuge eine sichere Liste der IDs, die für den "NOT IN"-Ausdruck verwendet werden
-        $usedIdsList = implode(',', $_SESSION['usedIds']);
-        $usedIdsList = empty($usedIdsList) ? 'NULL' : $usedIdsList;
-
-        $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations WHERE id NOT IN ($usedIdsList) ORDER BY RAND() LIMIT 1";
+        $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations WHERE id NOT IN (" . implode(',', $_SESSION['usedIds']) . ") ORDER BY RAND() LIMIT 1";
         $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
         $SQL_GET_RANDOM_VOCAB->execute();
         $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
