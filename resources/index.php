@@ -10,7 +10,7 @@ $SQL_GET_RANDOM_VOCAB->execute();
 
 $maxId = $SQL_GET_RANDOM_VOCAB->rowCount();
 
-$usedIds = array();
+$_SESSION['maxId'] = $maxId;
 
 if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
     while ($row = $SQL_GET_RANDOM_VOCAB->fetch()) { // Du musst "fetch" verwenden, nicht "fetch_assoc".
@@ -19,7 +19,7 @@ if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
         $id = $row['id'];
         echo $english;
 
-        $usedIds[] = $id;
+       $_SESSION['usedIds'][] = $id;
     }
 } else {
     echo "Keine Vokabeln gefunden.";
@@ -28,5 +28,5 @@ if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
 <h1>Vokabeltrainer</h1>
 
 <?php
-print_r($usedIds);
+print_r($_SESSION['usedIds']);
 ?>
