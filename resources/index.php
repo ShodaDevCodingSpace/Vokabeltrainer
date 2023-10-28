@@ -7,11 +7,13 @@ session_start();
 $db = new MySQL();
 $mysql = $db->getConnection();
 
+// Stelle sicher, dass $_SESSION['usedIds'] initialisiert ist
 $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
 $vocabid = null;
+$totalVocabCount = 10; // Annahme: Du möchtest insgesamt 10 Vokabeln verwenden.
 
-if (isset($_SESSION['usedIds'])) {
+if (count($_SESSION['usedIds']) < $totalVocabCount) {
     do {
         $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations WHERE id NOT IN (" . implode(',', $_SESSION['usedIds']) . ") ORDER BY RAND() LIMIT 1";
         $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
@@ -22,10 +24,10 @@ if (isset($_SESSION['usedIds'])) {
             $_SESSION['usedIds'][] = $vocabid;
             echo $vocab['english_term'];
         }
-    } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount); // Wiederhole, bis eine neue Vokabel gefunden wird oder alle Vokabeln verwendet wurden
+    } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
 }
 
-if (count($_SESSION['usedIds']) == $totalVocabCount) {
+if (count($_SESSION['usedIds']) >= $totalVocabCount) {
     echo "Alle Vokabeln wurden verwendet.";
 }
 ?>
