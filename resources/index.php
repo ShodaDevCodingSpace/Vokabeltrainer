@@ -26,3 +26,5 @@ if ($SQL_GET_RANDOM_VOCAB->rowCount() > 0) {
 }
 ?>
 <h1>Vokabeltrainer</h1>
+
+<?= $usedIds ?>
