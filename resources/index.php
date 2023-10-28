@@ -7,7 +7,6 @@ session_start();
 $db = new MySQL();
 $mysql = $db->getConnection();
 
-if ($mysql) {
     $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations ORDER BY RAND() LIMIT 1";
     $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
     $SQL_GET_RANDOM_VOCAB->execute();
@@ -28,9 +27,7 @@ if ($mysql) {
     }
 
     $_SESSION['maxId'] = count($_SESSION['usedIds']);
-} else {
-    echo "Datenbankverbindung fehlgeschlagen.";
-}
+
 ?>
 <h1>Vokabeltrainer</h1>
 
