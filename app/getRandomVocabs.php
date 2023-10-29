@@ -1,7 +1,7 @@
 <?php
 
 
-   include BASE_PATH . 'app/connectDB.php';
+   include BASE_PATH . 'app/ConnectDB.php';
 
    $mysql = new MySQL();
    $mysql = $mysql->getConnection();
