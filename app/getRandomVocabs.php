@@ -24,12 +24,14 @@ if (count($_SESSION['usedIds']) < $totalVocabCount) {
        if ($vocab) {
            $vocabid = $vocab['id'];
            $_SESSION['usedIds'][] = $vocabid;
-           return $vocab['english_term'];
+           $response = $vocab['english_term'];
        }
    } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
 }
 
 if (count($_SESSION['usedIds']) > $totalVocabCount) {
-    return "Alle Vokabeln wurden verwendet.";
+    $response = "No more vocabs";
 }
+
+return $response;
 ?>
