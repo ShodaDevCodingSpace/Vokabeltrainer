@@ -33,6 +33,12 @@
          <?php 
       } else {
          echo "Falsch!";
+         if (empty($usedIds)) {
+            $usedIds = array(0);
+         } else {
+            array_push($usedIds, count($usedIds));
+         }
+         $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
             <input type="submit" name="GoOn" value="Nächstes">
