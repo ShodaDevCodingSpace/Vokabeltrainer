@@ -16,7 +16,7 @@
 ?>
 
 <?php 
-echo $_SESSION['vocabs'];
+print_r($_SESSION['vocabs']);
 if(!isset($_SESSION['usedIds'])) {
    echo $_SESSION['vocabs'][0]['english'];
 } else {
