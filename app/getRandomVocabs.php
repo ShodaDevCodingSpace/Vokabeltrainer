@@ -23,5 +23,6 @@
           $german = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT_ROW['german_translation'];
   
           $vocabs[] = array('english' => $english, 'german' => $german);
+          $_SESSION['vocabs'] = $vocabs;
       }
   }
