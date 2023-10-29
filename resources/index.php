@@ -1,17 +1,17 @@
 <?php
+   session_start();
+   
    if(isset($_POST['10'])) {
-      $maxVocabs = 10;
+      $_SESSION['maxVocabs'] = 10;
    }
    if(isset($_POST['20'])) {
-      $maxVocabs = 20;
+      $_SESSION['maxVocabs'] = 20;
    }
    if(isset($_POST['25'])) {
-      $maxVocabs = 25;
+      $_SESSION['maxVocabs'] = 25;
    }
 ?>
-<?php
-//include BASE_PATH . 'app/getRandomVocabs.php';
-?>
+
 <h1>Vokabeltrainer</h1>
 <p>Wie viele Vokabeln willst du lernen?</p>
 <form method="POST">
