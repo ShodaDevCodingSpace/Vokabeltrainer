@@ -15,9 +15,13 @@
    $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $mysql->prepare($SQL_GET_RANDOM_VOCAB_BY_AMOUNT);
    $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->execute();
 
-   while($SQL_GET_RANDOM_VOCAB_BY_AMOUNT->rowCount() > 0) {
-      $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->fetch(PDO::FETCH_ASSOC);
-      $english = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['english_term'];
-      $german = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['german_translation'];
-      $vocabs[] = array('english' => $english, 'german' => $german);
-   }
+   if ($SQL_GET_RANDOM_VOCAB_BY_AMOUNT && $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->rowCount() > 0) {
+      $vocabs = array();
+  
+      while ($SQL_GET_RANDOM_VOCAB_BY_AMOUNT_ROW = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->fetch(PDO::FETCH_ASSOC)) {
+          $english = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT_ROW['english_term'];
+          $german = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT_ROW['german_translation'];
+  
+          $vocabs[] = array('english' => $english, 'german' => $german);
+      }
+  }
