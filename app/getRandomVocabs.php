@@ -1,37 +1,20 @@
 <?php
-   include_once BASE_PATH . 'app/ConnectDB.php';
 
-   $db = new MySQL();
-   $mysql = $db->getConnection();
+   include BASE_PATH . 'app/connectDB.php';
+
+   $mysql = new mysql();
+   $mysql = new $mysql->getConnection();
 
    session_start();
 
-   $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
+   $maxVocabs = $_SESSION['maxVocabs'];
 
-   $vocabId = null;
-   $totalVocabCount = $_SESSION['maxVocabs'];
+   $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = "SELECT * FROM translations ORDER BY RAND() LIMIT $maxVocabs";
+   $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $mysql->prepare($SQL_GET_RANDOM_VOCAB_BY_AMOUNT);
+   $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->execute();
 
-   if (count($_SESSION['usedIds']) < $totalVocabCount) {
-      do {
-         $SQL_GET_RANDOM_VOCAB = "SELECT * FROM translations";
-         if (!empty($_SESSION['usedIds'])) {
-            $SQL_GET_RANDOM_VOCAB .= " WHERE id NOT IN (" . implode(',', $_SESSION['usedIds']) . ")";
-         }
-         $SQL_GET_RANDOM_VOCAB .= " ORDER BY RAND() LIMIT 1";
-         $SQL_GET_RANDOM_VOCAB = $mysql->prepare($SQL_GET_RANDOM_VOCAB);
-         $SQL_GET_RANDOM_VOCAB->execute();
-         $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
-         if ($vocab) {
-            $vocabId = $vocab['id'];
-            $_SESSION['usedIds'][] = $vocabId;
-            $response = $vocab['english_term'];
-         }
-      } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
+   while($SQL_GET_RANDOM_VOCAB_BY_AMOUNT->rowCount() > 0) {
+      $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->fetch(PDO::FETCH_ASSOC);
+      $english = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['english_term'];
+      $german = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['german_translation'];
    }
-
-   if (count($_SESSION['usedIds']) > $totalVocabCount) {
-      $response = "No more vocabs";
-   }
-
-   return $response;
-?>
