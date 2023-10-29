@@ -18,7 +18,7 @@
 <?php 
 
 if(!isset($_SESSION['usedIds'])) {
-   echo $vocabs[0];
+   echo $vocabs[0]->$english;
 }
  ?>
 
