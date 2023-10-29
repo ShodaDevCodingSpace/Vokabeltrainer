@@ -15,7 +15,13 @@
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
 
-<?php echo $_SESSION['usedIds']; ?>
+<?php 
+if (isset($_SESSION['usedIds']) && !empty($_SESSION['usedIds'])) {
+   echo implode(',', $_SESSION['usedIds']);
+} else {
+   echo "No used IDs found.";
+}
+ ?>
 
 <form method="POST">
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
