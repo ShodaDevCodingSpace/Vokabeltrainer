@@ -16,27 +16,25 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          echo "Richtig!";
-      } else {
-         echo "Falsch!";
-      }
-
-      if (count($usedIds) + 1 == $maxVocabs) {
-         session_unset();
-         session_destroy();
-         header("Location: https://shoda.lol");
-      
-      } else {
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
+         sleep(5);
+         header("Location: https://shoda.lol/learnVocabs");
+      } else {
+         echo "Falsch!";
+         sleep(5);
          header("Location: https://shoda.lol/learnVocabs");
       }
 
-      
-
+      if (count($usedIds) + 1 == $maxVocabs) {
+         session_unset();
+         session_destroy();
+         header("Location: https://shoda.lol");
+      }
    }
 ?>
 
