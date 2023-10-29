@@ -9,7 +9,7 @@
    }
 ?>
 <?php
-   if(!count($_SESSION['usedIds']) === $_SESSION['maxVocabs']) {
+   if(!count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) === $_SESSION['maxVocabs']) {
       ?>
 <p><?= count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; ?>/<?= $_SESSION['maxVocabs']; ?></p>
 <?php 
