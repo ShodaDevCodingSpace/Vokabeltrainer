@@ -8,6 +8,10 @@
       header("Location: https://shoda.lol");
    }
 
+   if(isset($_POST['GoOn'])) {
+      header("Location: https://shoda.lol/learnVocabs");
+   }
+
    if(isset($_POST['submitVocab'])) {
       $enteredVocab = $_POST['enteredVocab'];
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
@@ -22,11 +26,14 @@
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
-         sleep(5);
-         header("Location: https://shoda.lol/learnVocabs");
+         ?>
+         <form method="POST">
+            <input type="submit" name="GoOn" value="Nächstes">
+         </form>
+         <?php 
       } else {
          echo "Falsch!";
-         sleep(5);
+         sleep(3);
          header("Location: https://shoda.lol/learnVocabs");
       }
 
