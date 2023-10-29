@@ -1,5 +1,7 @@
 <?php
-   include_once BASE_PATH . 'app/getRandomVocabs.php';
+   //include_once BASE_PATH . 'app/getRandomVocabs.php';
 ?>
 
-<?= $response; ?>
+<?php 
+   echo $_SESSION['maxVocabs'];
+?>
