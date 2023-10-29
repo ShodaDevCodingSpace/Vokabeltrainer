@@ -1,5 +1,4 @@
 <?php
-   require_once BASE_PATH . 'Exceptions/VocabsNotFountException.php';
 
 
    include BASE_PATH . 'app/connectDB.php';
@@ -11,10 +10,6 @@
 
    $maxVocabs = $_SESSION['maxVocabs'];
 
-   if($maxVocabs == 0) {
-      $message = "No vocabs found!";
-      throw new VocabsNotFountException($message);
-   }
 
    $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = "SELECT * FROM translations ORDER BY RAND() LIMIT $maxVocabs";
    $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $mysql->prepare($SQL_GET_RANDOM_VOCAB_BY_AMOUNT);
