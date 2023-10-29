@@ -1,7 +1,7 @@
 <?php
-   //include_once BASE_PATH . 'app/getRandomVocabs.php';
+   session_start();
+   $maxVocabs = isset($_SESSION['maxVocabs']) ? $_SESSION['maxVocabs'] : 0;
 ?>
 
-<?php 
-   echo $_SESSION['maxVocabs'];
-?>
+<h1>Vokabeltrainer</h1>
+<p>Du hast <?php echo $maxVocabs; ?> Vokabeln ausgewählt.</p>
