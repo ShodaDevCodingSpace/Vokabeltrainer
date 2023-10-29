@@ -7,6 +7,37 @@
       session_destroy();
       header("Location: https://shoda.lol");
    }
+
+   if(isset($_POST['submitVocab'])) {
+      $enteredVocab = $_POST['enteredVocab'];
+      $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
+      $vocabs = $_SESSION['vocabs'];
+      $maxVocabs = $_SESSION['maxVocabs'];
+      
+      if($enteredVocab == $vocabs[count($usedIds)]['german']) {
+         echo "Richtig!";
+      } else {
+         echo "Falsch!";
+      }
+
+      if (count($usedIds) + 1 == $maxVocabs) {
+         session_unset();
+         session_destroy();
+         header("Location: https://shoda.lol");
+      
+      } else {
+         if (empty($usedIds)) {
+            $usedIds = array(0);
+         } else {
+            array_push($usedIds, count($usedIds));
+         }
+         $_SESSION['usedIds'] = $usedIds;
+         header("Location: https://shoda.lol/learnVocabs");
+      }
+
+      
+
+   }
 ?>
 
 <p><?= count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; ?>/<?= $_SESSION['maxVocabs']; ?></p>
