@@ -8,6 +8,11 @@
       header("Location: https://shoda.lol");
    }
 ?>
+
+<?php
+   include BASE_PATH . 'app/getRandomVocabs.php';
+?>
+
 <form method="POST">
    <input type="submit" name="endsession" value="Session beenden">
 </form>

@@ -4,10 +4,12 @@
    $db = new MySQL();
    $mysql = $db->getConnection();
 
+   session_start();
+   
    $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
    $vocabId = null;
-   $totalVocabCount = $maxVocabs;
+   $totalVocabCount = $_SESSION['maxVocabs'];
 
    if (count($_SESSION['usedIds']) < $totalVocabCount) {
       do {
