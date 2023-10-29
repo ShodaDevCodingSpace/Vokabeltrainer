@@ -14,6 +14,7 @@
       header("Location: https://shoda.lol/learnVocabs");
    }
    if(isset($_POST['endsession'])) {
+      session_unset();
       session_destroy();
       header("Location: https://shoda.lol");
    }
