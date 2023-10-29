@@ -4,14 +4,17 @@
    if(isset($_POST['10'])) {
       $_SESSION['maxVocabs'] = 10;
       header("Location: https://shoda.lol/learnVocabs");
+      include_once BASE_PATH . 'app/getRandomVocabs.php';
    }
    if(isset($_POST['20'])) {
       $_SESSION['maxVocabs'] = 20;
       header("Location: https://shoda.lol/learnVocabs");
+      include_once BASE_PATH . 'app/getRandomVocabs.php';
    }
    if(isset($_POST['25'])) {
       $_SESSION['maxVocabs'] = 25;
       header("Location: https://shoda.lol/learnVocabs");
+      include_once BASE_PATH . 'app/getRandomVocabs.php';
    }
    if(isset($_POST['endsession'])) {
       session_unset();
