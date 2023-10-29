@@ -29,7 +29,7 @@
       } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
    }
 
-   if (count($_SESSION['usedIds']) + 1 > $totalVocabCount) {
+   if (count($_SESSION['usedIds']) > $totalVocabCount) {
       $response = "No more vocabs";
    }
 
