@@ -12,6 +12,7 @@
 <?php
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
+<?= $response; ?>
 
 <form method="POST">
    <input type="submit" name="endsession" value="Session beenden">
