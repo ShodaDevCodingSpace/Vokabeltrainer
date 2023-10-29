@@ -22,7 +22,7 @@
 <?= $response; ?>
 
 <form method="POST">
-   <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben">
+   <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
    <input type="submit" name="submitVocab" text="Abschicken">
 </form>
 
