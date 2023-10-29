@@ -1,6 +1,6 @@
 <?php
    session_start();
-   echo $_SESSION['maxVocabs'];
+
 
    if(isset($_POST['endsession'])) {
       session_unset();
@@ -8,7 +8,7 @@
       header("Location: https://shoda.lol");
    }
 ?>
-
+<p><?= $_SESSION['usedIds']; ?>/<?= $_SESSION['maxVocabs']; ?></p>
 <?php
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
