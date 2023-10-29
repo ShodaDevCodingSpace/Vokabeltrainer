@@ -11,9 +11,6 @@
 
 <p><?= count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; ?>/<?= $_SESSION['maxVocabs']; ?></p>
 
-<?php
-   include BASE_PATH . 'app/getRandomVocabs.php';
-?>
 
 <?php 
 print_r($_SESSION['vocabs']);
