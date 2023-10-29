@@ -15,11 +15,16 @@
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
 <?php
-   if (count($_SESSION['usedIds']) >= $_SESSION['maxVocabs']) {
+   if (count($_SESSION['usedIds']) > $_SESSION['maxVocabs']) {
       $response = "No more vocabs";
    }
 ?>
 <?= $response; ?>
+
+<form method="POST">
+   <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben">
+   <input type="submit" name="submitVocab" text="Abschicken">
+</form>
 
 
 <form method="POST">
