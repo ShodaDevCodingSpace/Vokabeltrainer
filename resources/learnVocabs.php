@@ -13,13 +13,16 @@
 
 
 <?php 
-print_r($_SESSION['vocabs']);
-if(empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
-   echo $_SESSION['vocabs'][0]['english'];
+if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
+   if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
+      echo $_SESSION['vocabs'][0]['english'];
+   } else {
+      echo $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
+   }
 } else {
-   echo $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
+   echo "No vocabs found.";
 }
- ?>
+?>
 
 <form method="POST">
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
