@@ -13,8 +13,8 @@
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
       $vocabs = $_SESSION['vocabs'];
       $maxVocabs = $_SESSION['maxVocabs'];
-      
-      if($enteredVocab == $vocabs[count($usedIds)]['german']) {
+
+      if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          echo "Richtig!";
       } else {
          echo "Falsch!";
