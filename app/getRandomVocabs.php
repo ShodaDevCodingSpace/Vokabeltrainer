@@ -24,4 +24,5 @@
       $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT->fetch(PDO::FETCH_ASSOC);
       $english = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['english_term'];
       $german = $SQL_GET_RANDOM_VOCAB_BY_AMOUNT['german_translation'];
+      $vocabs[] = array('english' => $english, 'german' => $german);
    }

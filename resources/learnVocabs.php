@@ -19,7 +19,7 @@
       $response = "No more vocabs";
    }
 ?>
-<?= $response; ?>
+<?= $vocabs; ?>
 
 <form method="POST">
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
