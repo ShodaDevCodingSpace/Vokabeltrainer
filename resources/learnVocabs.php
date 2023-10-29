@@ -16,10 +16,9 @@
 ?>
 
 <?php 
-if (isset($_SESSION['usedIds']) && !empty($_SESSION['usedIds'])) {
-   echo implode(',', $_SESSION['usedIds']);
-} else {
-   echo "No used IDs found.";
+
+if(!isset($_SESSION['usedIds'])) {
+   echo $vocabs[0];
 }
  ?>
 
