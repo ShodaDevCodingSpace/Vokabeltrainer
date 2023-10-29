@@ -4,7 +4,7 @@
    include BASE_PATH . 'app/connectDB.php';
 
    $mysql = new MySQL();
-   $mysql = new $mysql->getConnection();
+   $mysql = $mysql->getConnection();
 
    session_start();
 
