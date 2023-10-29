@@ -15,7 +15,7 @@
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
 
-<?= $vocabs[$_SESSION['usedIds']]->english; ?>
+<?= $vocabs[$_SESSION['usedIds']]; ?>
 
 <form method="POST">
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
