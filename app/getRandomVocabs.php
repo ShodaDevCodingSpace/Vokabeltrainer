@@ -8,8 +8,8 @@ $mysql = $db->getConnection();
 
 $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
-$vocabid = null;
-$totalVocabCount = 9;
+$vocabId = null;
+$totalVocabCount = $maxVocabs;
 
 if (count($_SESSION['usedIds']) < $totalVocabCount) {
    do {
@@ -22,8 +22,8 @@ if (count($_SESSION['usedIds']) < $totalVocabCount) {
        $SQL_GET_RANDOM_VOCAB->execute();
        $vocab = $SQL_GET_RANDOM_VOCAB->fetch();
        if ($vocab) {
-           $vocabid = $vocab['id'];
-           $_SESSION['usedIds'][] = $vocabid;
+           $vocabId = $vocab['id'];
+           $_SESSION['usedIds'][] = $vocabId;
            $response = $vocab['english_term'];
        }
    } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
