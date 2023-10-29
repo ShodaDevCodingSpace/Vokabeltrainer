@@ -14,7 +14,7 @@
 
 <?php 
 print_r($_SESSION['vocabs']);
-if(empty($_SESSION['usedIds'])) {
+if(empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
    echo $_SESSION['vocabs'][0]['english'];
 } else {
    echo $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
