@@ -8,7 +8,7 @@
       header("Location: https://shoda.lol");
    }
 ?>
-<p><?= $_SESSION['usedIds']; ?>/<?= $_SESSION['maxVocabs']; ?></p>
+<p><?= count($_SESSION['usedIds']); ?>/<?= $_SESSION['maxVocabs']; ?></p>
 <?php
    include BASE_PATH . 'app/getRandomVocabs.php';
 ?>
