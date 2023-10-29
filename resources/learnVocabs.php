@@ -33,8 +33,11 @@
          <?php 
       } else {
          echo "Falsch!";
-         sleep(3);
-         header("Location: https://shoda.lol/learnVocabs");
+         ?>
+         <form method="POST">
+            <input type="submit" name="GoOn" value="Nächstes">
+         </form>
+         <?php
       }
 
       if (count($usedIds) + 1 == $maxVocabs) {
