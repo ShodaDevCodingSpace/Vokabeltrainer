@@ -5,7 +5,7 @@
    $mysql = $db->getConnection();
 
    session_start();
-   
+
    $_SESSION['usedIds'] = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
 
    $vocabId = null;
@@ -29,7 +29,7 @@
       } while (!$vocab && count($_SESSION['usedIds']) < $totalVocabCount);
    }
 
-   if (count($_SESSION['usedIds']) > $totalVocabCount) {
+   if (count($_SESSION['usedIds']) + 1 > $totalVocabCount) {
       $response = "No more vocabs";
    }
 
