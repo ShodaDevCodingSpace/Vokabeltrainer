@@ -3,15 +3,15 @@
 
    if(isset($_POST['10'])) {
       $_SESSION['maxVocabs'] = 10;
-      header("Location: " . "/learnVocabs.php");
+      header("Location: " . "/learnVocabs");
    }
    if(isset($_POST['20'])) {
       $_SESSION['maxVocabs'] = 20;
-      header("Location: " . "/learnVocabs.php");
+      header("Location: " . "/learnVocabs");
    }
    if(isset($_POST['25'])) {
       $_SESSION['maxVocabs'] = 25;
-      header("Location: " . "/learnVocabs.php");
+      header("Location: " . "/learnVocabs");
    }
 ?>
 
