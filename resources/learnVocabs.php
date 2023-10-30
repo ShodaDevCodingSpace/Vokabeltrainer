@@ -52,8 +52,7 @@
    }
 ?>
 
-<p><?= count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; ?>/<?= $_SESSION['maxVocabs']; ?></p>
-
+<?php $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; ?>/<?= $_SESSION['maxVocabs']; ?>
 
 <?php 
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
@@ -63,7 +62,7 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
       $english = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
    }
 } else {
-   echo "No vocabs found.";
+   $errorNoVocabs = "No vocabs found.";
 }
 ?>
 
