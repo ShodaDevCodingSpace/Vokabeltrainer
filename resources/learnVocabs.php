@@ -79,11 +79,11 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 ?>
 
 <?php
-   if (isset($htmlGoOn) && !empty($htmlGoOn)) {
-      echo $htmlGoOn;
+   if (isset($htmlGoOnForm) && !empty($htmlGoOnForm)) {
+      echo $htmlGoOnForm;
    } else {
       echo "No HTML found.";
    }
 ?>
 
-<?= $htmlEndSession; ?>
+<?= $htmlEndSessionForm; ?>
