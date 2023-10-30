@@ -1,9 +1,9 @@
 <?php
-   function countUp($usedids){
+   function countUp($usedIds){
       if (empty($usedids)) {
-         $usedids = array(0);
+         $usedIds = array(0);
       } else {
-         array_push($usedids, count($usedids));
+         array_push($usedIds, count($usedIds));
       }
    }
       
