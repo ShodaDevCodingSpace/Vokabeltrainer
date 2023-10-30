@@ -6,11 +6,11 @@
    $english = 0;
    $errorNoVocabs = 0;
    $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs'];
-   $htmlGoOnForm = '
+   /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
       </form>
-   ';
+   ';*/
    $htmlInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
@@ -37,9 +37,7 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $truefalsecase = 'Richtig!';
-         if(isset($_POST['GoOn'])) {
-            header("Location: https://shoda.lol/learnVocabs");
-         }
+
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
@@ -49,9 +47,6 @@
 
       } else {
          $truefalsecase = 'Falsch!';
-         if(isset($_POST['GoOn'])) {
-            header("Location: https://shoda.lol/learnVocabs");
-         }
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
