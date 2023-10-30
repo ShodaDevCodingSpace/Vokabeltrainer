@@ -9,7 +9,7 @@
    session_start();
 
    $maxVocabs = $_SESSION['maxVocabs'];
-   $_SESSION['x'] = 0;
+   $_SESSION['x'] = 1;
 
 
    $SQL_GET_RANDOM_VOCAB_BY_AMOUNT = "SELECT * FROM translations ORDER BY RAND() LIMIT $maxVocabs";
