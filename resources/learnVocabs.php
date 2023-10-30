@@ -71,7 +71,13 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
    <input type="submit" name="submitVocab" text="Abschicken">
 </form>-->
 
-<?= $htmlgoon; ?>
+<?php
+   if (isset($htmlgoon) && !empty($htmlgoon)) {
+      echo $htmlgoon;
+   } else {
+      echo "No HTML found.";
+   }
+?>
 
 
 <form method="POST">
