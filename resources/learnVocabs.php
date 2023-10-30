@@ -34,10 +34,13 @@
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
       $vocabs = $_SESSION['vocabs'];
       $maxVocabs = $_SESSION['maxVocabs'];
+      if(!isset($_SESSION['enteredVocabs']) || empty($_SESSION['enteredVocabs'])) {
+         $_SESSION['enteredVocabs'] = array();
+      }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
+         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]['german']] = 'true';
          $truefalsecase = 'Richtig!';
-
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
@@ -46,6 +49,7 @@
          $_SESSION['usedIds'] = $usedIds;
 
       } else {
+         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]['german']] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -72,7 +76,7 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
    $errorNoVocabs = "No vocabs found.";
 }
 ?>
-
+<?php print_r($_SESSION['enteredVocabs']); ?>
 <?= $english; ?>
 <br>
 <?= $htmlInputForm; ?>
