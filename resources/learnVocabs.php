@@ -11,7 +11,7 @@
          <input type="submit" name="GoOn" value="Nächstes">
       </form>
    ';
-   $htmlSendInputForm = '
+   $htmlInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
          <input type="submit" name="submitVocab" text="Abschicken">
