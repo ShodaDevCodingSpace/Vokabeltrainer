@@ -1,12 +1,4 @@
 <?php
-   function countUp($usedIds){
-      if (empty($usedids)) {
-         $usedIds = array(0);
-      } else {
-         array_push($usedIds, count($usedIds));
-      }
-   }
-      
    session_start();
 
    if(isset($_POST['endsession'])) {
@@ -27,7 +19,11 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          echo "Richtig!";
-         countUp($usedIds);
+         if (empty($usedIds)) {
+            $usedIds = array(0);
+         } else {
+            array_push($usedIds, count($usedIds));
+         }
          $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
@@ -36,7 +32,11 @@
          <?php 
       } else {
          echo "Falsch!";
-         countUp($usedIds);
+         if (empty($usedIds)) {
+            $usedIds = array(0);
+         } else {
+            array_push($usedIds, count($usedIds));
+         }
          $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
