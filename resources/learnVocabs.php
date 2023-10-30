@@ -2,7 +2,7 @@
    session_start();
 
    //vars
-   $truefalscase = 0;
+   $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
    $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs'];
@@ -36,7 +36,7 @@
       $maxVocabs = $_SESSION['maxVocabs'];
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $truefalscase = 'Richtig!';
+         $truefalsecase = 'Richtig!';
          if(isset($_POST['GoOn'])) {
             header("Location: https://shoda.lol/learnVocabs");
          }
@@ -81,6 +81,11 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 <?= $english; ?>
 <br>
 <?= $htmlInputForm; ?>
+<?= if($truefalsecase === 'Richtig!') {
+   echo $htmlGoOnForm;
+} else {
+   echo $htmlGoOnForm;
+} ?>
 <?= $counter; ?>
 
 <?= $htmlEndSessionForm; ?>
