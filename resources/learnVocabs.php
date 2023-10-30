@@ -79,7 +79,6 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
    $errorNoVocabs = "No vocabs found.";
 }
 ?>
-<?php print_r($_SESSION['enteredVocabs']); ?>
 <?= $english; ?>
 <br>
 <?= $htmlInputForm; ?>
