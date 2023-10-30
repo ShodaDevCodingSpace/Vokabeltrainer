@@ -79,8 +79,8 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 ?>
 
 <?php
-   if (isset($htmlgoon) && !empty($htmlgoon)) {
-      echo $htmlgoon;
+   if (isset($htmlGoOn) && !empty($htmlGoOn)) {
+      echo $htmlGoOn;
    } else {
       echo "No HTML found.";
    }
