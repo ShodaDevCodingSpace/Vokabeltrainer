@@ -6,18 +6,18 @@
    $english = 0;
    $errorNoVocabs = 0;
    $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs'];
-   $htmlGoOn = '
+   $htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
       </form>
    ';
-   $htmlSendInput = '
+   $htmlSendInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
          <input type="submit" name="submitVocab" text="Abschicken">
       </form>
    ';
-   $htmlEndSession = '      
+   $htmlEndSessionForm = '      
       <form method="POST">
          <input type="submit" name="endsession" value="Session beenden">
       </form>
