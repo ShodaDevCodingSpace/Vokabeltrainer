@@ -7,9 +7,7 @@
       header("Location: https://shoda.lol");
    }
 
-   if(isset($_POST['GoOn'])) {
-      header("Location: https://shoda.lol/learnVocabs");
-   }
+   
 
    if(isset($_POST['submitVocab'])) {
       $enteredVocab = $_POST['enteredVocab'];
@@ -25,6 +23,9 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $truefalscase = 'Richtig!';
+         if(isset($_POST['GoOn'])) {
+            header("Location: https://shoda.lol/learnVocabs");
+         }
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
@@ -34,6 +35,9 @@
 
       } else {
          $truefalsecase = 'Falsch!';
+         if(isset($_POST['GoOn'])) {
+            header("Location: https://shoda.lol/learnVocabs");
+         }
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
