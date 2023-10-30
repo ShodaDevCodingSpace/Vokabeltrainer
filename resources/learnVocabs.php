@@ -80,6 +80,7 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 }
 ?>
 <?php print_r($_SESSION['enteredVocabs']); ?>
+<?= $x; ?>
 <?= $english; ?>
 <br>
 <?= $htmlInputForm; ?>
