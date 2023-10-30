@@ -17,32 +17,29 @@
       $vocabs = $_SESSION['vocabs'];
       $maxVocabs = $_SESSION['maxVocabs'];
 
+      $htmlgoon = '
+         <form method="POST">
+            <input type="submit" name="GoOn" value="Nächstes">
+         </form>
+         ';
+
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         echo "Richtig!";
+         $truefalscase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
-         ?>
-         <form method="POST">
-            <input type="submit" name="GoOn" value="Nächstes">
-         </form>
-         <?php 
+
       } else {
-         echo "Falsch!";
+         $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
-         ?>
-         <form method="POST">
-            <input type="submit" name="GoOn" value="Nächstes">
-         </form>
-         <?php
       }
 
       if (count($usedIds) + 1 == $maxVocabs) {
@@ -55,7 +52,6 @@
 
 
 <?php 
-print_r($_SESSION['vocabs']);
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
    if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
       echo $_SESSION['vocabs'][0]['english'];
@@ -71,6 +67,8 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
    <input type="submit" name="submitVocab" text="Abschicken">
 </form>
+
+<?= $htmlgoon; ?>
 
 
 <form method="POST">
