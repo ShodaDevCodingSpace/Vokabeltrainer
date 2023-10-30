@@ -81,7 +81,7 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 <?= $english; ?>
 <br>
 <?= $htmlInputForm; ?>
-<?= if($truefalsecase === 'Richtig!') {
+<?php if($truefalsecase === 'Richtig!') {
    echo $htmlGoOnForm;
 } else {
    echo $htmlGoOnForm;
