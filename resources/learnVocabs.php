@@ -10,6 +10,12 @@
 
    if(isset($_POST['GoOn'])) {
       header("Location: https://shoda.lol/learnVocabs");
+      if (empty($usedIds)) {
+         $usedIds = array(0);
+      } else {
+         array_push($usedIds, count($usedIds));
+      }
+      $_SESSION['usedIds'] = $usedIds;
    }
 
    if(isset($_POST['submitVocab'])) {
@@ -20,12 +26,6 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          echo "Richtig!";
-         if (empty($usedIds)) {
-            $usedIds = array(0);
-         } else {
-            array_push($usedIds, count($usedIds));
-         }
-         $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
             <input type="submit" name="GoOn" value="Nächstes">
@@ -33,12 +33,6 @@
          <?php 
       } else {
          echo "Falsch!";
-         if (empty($usedIds)) {
-            $usedIds = array(0);
-         } else {
-            array_push($usedIds, count($usedIds));
-         }
-         $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
             <input type="submit" name="GoOn" value="Nächstes">
