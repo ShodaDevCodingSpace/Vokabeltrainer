@@ -52,7 +52,7 @@
    }
 ?>
 
-<?php $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; . '/' . $_SESSION['maxVocabs']; ?>
+<?php $counter = '' . count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1; . '/' . $_SESSION['maxVocabs']; . '' ?>
 
 <?php 
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
