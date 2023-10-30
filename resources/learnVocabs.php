@@ -2,7 +2,7 @@
    session_start();
 
    //vars
-   $x = 0;
+   $x = $_SESSION['x'];
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
