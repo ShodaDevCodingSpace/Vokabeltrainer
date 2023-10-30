@@ -39,7 +39,8 @@
       }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]['german']] = 'true';
+         $case = array('case' => 'true');
+         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]] = $case;
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -49,7 +50,8 @@
          $_SESSION['usedIds'] = $usedIds;
 
       } else {
-         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]['german']] = 'false';
+         $case = array('case' => 'false');
+         $_SESSION['enteredVocabs'][$vocabs[count($usedIds)]] = $case;
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
