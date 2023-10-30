@@ -53,6 +53,7 @@
 
 <?php 
 print_r($_SESSION['vocabs']);
+print_r($_SESSION['usedIds']);
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
    if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
       echo $_SESSION['vocabs'][0]['english'];
