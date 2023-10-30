@@ -58,9 +58,9 @@
 <?php 
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
    if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
-      echo $_SESSION['vocabs'][0]['english'];
+      $english = $_SESSION['vocabs'][0]['english'];
    } else {
-      echo $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
+      $english = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
    }
 } else {
    echo "No vocabs found.";
