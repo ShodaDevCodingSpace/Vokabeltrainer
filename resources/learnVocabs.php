@@ -19,7 +19,7 @@
          <form method="POST">
             <input type="submit" name="GoOn" value="Nächstes">
          </form>
-         ';
+      ';
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $truefalscase = 'Richtig!';
