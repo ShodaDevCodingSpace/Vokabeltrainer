@@ -1,5 +1,5 @@
 <?php
-   private function countUp($usedids){
+   function countUp($usedids){
       if (empty($usedids)) {
          $usedids = array(0);
       } else {
