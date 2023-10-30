@@ -79,5 +79,6 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 ?>
 
 <?= $english; ?>
+<?= $counter; ?>
 
 <?= $htmlEndSessionForm; ?>
