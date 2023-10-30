@@ -67,10 +67,10 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 }
 ?>
 
-<form method="POST">
+<!--<form method="POST">
    <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
    <input type="submit" name="submitVocab" text="Abschicken">
-</form>
+</form>-->
 
 <?= $htmlgoon; ?>
 
