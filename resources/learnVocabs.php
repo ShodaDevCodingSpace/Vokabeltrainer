@@ -1,25 +1,39 @@
 <?php
    session_start();
 
+   //vars
+   $truefalscase = 0;
+   $english = 0;
+   $errorNoVocabs = 0;
+   $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs'];
+   $htmlGoOn = '
+      <form method="POST">
+         <input type="submit" name="GoOn" value="Nächstes">
+      </form>
+   ';
+   $htmlSendInput = '
+      <form method="POST">
+         <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
+         <input type="submit" name="submitVocab" text="Abschicken">
+      </form>
+   ';
+   $htmlEndSession = '      
+      <form method="POST">
+         <input type="submit" name="endsession" value="Session beenden">
+      </form>
+   ';
+
    if(isset($_POST['endsession'])) {
       session_unset();
       session_destroy();
       header("Location: https://shoda.lol");
    }
 
-   
-
    if(isset($_POST['submitVocab'])) {
       $enteredVocab = $_POST['enteredVocab'];
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
       $vocabs = $_SESSION['vocabs'];
       $maxVocabs = $_SESSION['maxVocabs'];
-
-      $htmlgoon = '
-         <form method="POST">
-            <input type="submit" name="GoOn" value="Nächstes">
-         </form>
-      ';
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $truefalscase = 'Richtig!';
@@ -52,8 +66,6 @@
    }
 ?>
 
-<?php $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs']; ?>
-
 <?php 
 if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
    if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
@@ -66,11 +78,6 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 }
 ?>
 
-<!--<form method="POST">
-   <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
-   <input type="submit" name="submitVocab" text="Abschicken">
-</form>-->
-
 <?php
    if (isset($htmlgoon) && !empty($htmlgoon)) {
       echo $htmlgoon;
@@ -79,7 +86,4 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
    }
 ?>
 
-
-<form method="POST">
-   <input type="submit" name="endsession" value="Session beenden">
-</form>
+<?= $htmlEndSession; ?>
