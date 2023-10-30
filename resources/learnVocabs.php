@@ -1,6 +1,13 @@
 <?php
+   private function countUp($usedids){
+      if (empty($usedids)) {
+         $usedids = array(0);
+      } else {
+         array_push($usedids, count($usedids));
+      }
+   }
+      
    session_start();
-
 
    if(isset($_POST['endsession'])) {
       session_unset();
@@ -20,11 +27,7 @@
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          echo "Richtig!";
-         if (empty($usedIds)) {
-            $usedIds = array(0);
-         } else {
-            array_push($usedIds, count($usedIds));
-         }
+         countUp($usedIds);
          $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
@@ -33,11 +36,7 @@
          <?php 
       } else {
          echo "Falsch!";
-         if (empty($usedIds)) {
-            $usedIds = array(0);
-         } else {
-            array_push($usedIds, count($usedIds));
-         }
+         countUp($usedIds);
          $_SESSION['usedIds'] = $usedIds;
          ?>
          <form method="POST">
@@ -47,9 +46,7 @@
       }
 
       if (count($usedIds) + 1 == $maxVocabs) {
-         session_unset();
-         session_destroy();
-         header("Location: https://shoda.lol");
+         
       }
    }
 ?>
