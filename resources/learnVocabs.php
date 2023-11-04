@@ -79,6 +79,8 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 } else {
    $errorNoVocabs = "No vocabs found.";
 }
+
+var_dump($usedIds);
 ?>
 <?= $english; ?>
 <br>
