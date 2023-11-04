@@ -2,16 +2,13 @@
    session_start();
 
    //vars
-   $x = 1;
-   $_SESSION['x'] = 0;
+   $_SESSION['x'] = 1;
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
    //isset($_SESSION['usedIds']) ? $counter = count($_SESSION['usedIds']) + 1 . '/' . $_SESSION['maxVocabs'] : $counter = count(array()) . '/' . $_SESSION['maxVocabs'];
    //$counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
 
-   //$counter = $_SESSION['x']+ 1 . '/' . $_SESSION['maxVocabs'];
-   $counter = $x . '/' . $_SESSION['maxVocabs'];
    /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
@@ -45,7 +42,6 @@
       }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $x = $x + 1;
          $_SESSION['x'] = $_SESSION['x'] + 1;
          $_SESSION['enteredVocabs'][$_SESSION['x']] = 'true';
          $truefalsecase = 'Richtig!';
@@ -58,7 +54,6 @@
 
       } else {
          $_SESSION['x'] = $_SESSION['x'] + 1;
-         $x = $x + 1;
          $_SESSION['enteredVocabs'][$_SESSION['x']] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
