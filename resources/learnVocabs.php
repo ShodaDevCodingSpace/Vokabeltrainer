@@ -83,6 +83,10 @@
    } else {
       $errorNoVocabs = "No vocabs found.";
 }
+var_dump($_SESSION['trueVocabs']);
+var_dump($_SESSION['falseVocabs']);
+var_dump($_SESSION['trueVocabsCount']);
+var_dump($_SESSION['falseVocabsCount']);
 ?>
 <?= $english; ?>
 <br>
