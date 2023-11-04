@@ -5,8 +5,8 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   $trueVocabs = $_SESSION['trueVocabs'] = array();
-   $falseVocabs = $_SESSION['falseVocabs'] = array();
+   $_SESSION['trueVocabs'] = array();
+   $_SESSION['falseVocabs'] = array();
    $_SESSION['trueVocabsCount'] = 0;
    $_SESSION['falseVocabsCount'] = 0;
    $htmlInputForm = '
@@ -41,7 +41,7 @@
    
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $_SESSION['trueVocabsCount'] = $_SESSION['trueVocabsCount'] + 1;
-         array_push($trueVocabs, $vocabs[$x]);
+         array_push($_SESSION['tureVocabs'], $vocabs[$x]);
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -53,7 +53,7 @@
          $_SESSION['x'] = $x;
       } else {
          $$_SESSION['falseVocabsCount'] = $_SESSION['falseVocabsCount'] + 1;
-         array_push($falseVocabs, $vocabs[$x]);
+         array_push($_SESSION['falseVocabs'], $vocabs[$x]);
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
