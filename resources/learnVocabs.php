@@ -5,6 +5,8 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
+   $trueVocabs = $_SESSION['trueVocabs'] = array();
+   $falseVocabs = $_SESSION['falseVocabs'] = array();
    $htmlInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
@@ -36,7 +38,8 @@
       }
    
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['enteredVocabs'][$x] = 'true';
+         $_SESSION['trueVocabsCount'] + 1;
+         array_push($trueVocabs, $vocabs[count($x)]);
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -47,7 +50,8 @@
          $x++;
          $_SESSION['x'] = $x;
       } else {
-         $_SESSION['enteredVocabs'][$x] = 'false';
+         $_SESSION['falseVocabsCount'] + 1;
+         array_push($falseVocabs, $vocabs[count($x)]);
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -68,14 +72,14 @@
 ?>
 
 <?php 
-if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
-   if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
-      $english = $_SESSION['vocabs'][0]['english'];
+   if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
+      if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
+         $english = $_SESSION['vocabs'][0]['english'];
+      } else {
+         $english = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
+      }
    } else {
-      $english = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
-   }
-} else {
-   $errorNoVocabs = "No vocabs found.";
+      $errorNoVocabs = "No vocabs found.";
 }
 ?>
 <?= $english; ?>
