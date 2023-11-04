@@ -1,18 +1,12 @@
 <?php
-   ini_set('display_errors', 1);
-   ini_set('display_startup_errors', 1);
-   error_reporting(E_ALL);
    session_start();
 
    //vars
    $x = $_SESSION['x'];
-   $_SESSION['enteredVocabs'] = array();
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
-   $numAnswered = count($usedIds);
-   $counter = ($numAnswered + 1) . '/' . $_SESSION['maxVocabs'];
+   $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
    /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
@@ -46,17 +40,19 @@
       }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['enteredVocabs'][$x] = 'true';
+         $_SESSION['x'] = $_SESSION['x'] + 1;
+         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'true';
          $truefalsecase = 'Richtig!';
-         $x++;
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
+
       } else {
-         $_SESSION['enteredVocabs'][$x] = 'false';
+         $_SESSION['x'] = $_SESSION['x'] + 1;
+         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -82,9 +78,6 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 } else {
    $errorNoVocabs = "No vocabs found.";
 }
-
-var_dump($usedIds);
-echo
 ?>
 <?= $english; ?>
 <br>
