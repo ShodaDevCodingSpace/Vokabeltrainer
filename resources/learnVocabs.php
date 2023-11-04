@@ -8,8 +8,8 @@
    $english = 0;
    $errorNoVocabs = 0;
    $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
-   $x = count($_SESSION['enteredVocabs']);
-   $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
+   $numAnswered = count($usedIds);
+   $counter = ($numAnswered + 1) . '/' . $_SESSION['maxVocabs'];
    /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
@@ -81,6 +81,7 @@ if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSI
 }
 
 var_dump($usedIds);
+echo
 ?>
 <?= $english; ?>
 <br>
