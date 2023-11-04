@@ -33,6 +33,7 @@
    }
 
    if(isset($_POST['submitVocab'])) {
+      $_SESSION['x'] = $_SESSION['x'] + 1;
       $enteredVocab = $_POST['enteredVocab'];
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
       $vocabs = $_SESSION['vocabs'];
@@ -42,7 +43,6 @@
       }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['x'] = $_SESSION['x'] + 1;
          $_SESSION['enteredVocabs'][$_SESSION['x']] = 'true';
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
@@ -53,7 +53,6 @@
          $_SESSION['usedIds'] = $usedIds;
 
       } else {
-         $_SESSION['x'] = $_SESSION['x'] + 1;
          $_SESSION['enteredVocabs'][$_SESSION['x']] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
