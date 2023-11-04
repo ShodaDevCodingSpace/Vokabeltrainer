@@ -1,4 +1,6 @@
 <?php
+   session_start();
+   
    $trueVocabsCount = $_SESSION['trueVocabsCount'];
    $falseVocabsCount = $_SESSION['falseVocabsCount'];
    $trueVocabs = $_SESSION['trueVocabs'];
