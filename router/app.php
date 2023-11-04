@@ -14,4 +14,10 @@ $router->register('/learnVocabs', new BaseController('learnVocabs'), 'GET');
 //POST /learnVocabs
 $router->register('/learnVocabs', new BaseController('learnVocabs'), 'POST');
 
+
+//GET /learnVocabsResult
+$router->register('/learnVocabsResult', new BaseController('learnVocabsResult'), 'GET');
+//POST /learnVocabsResult
+$router->register('/learnVocabsResult', new BaseController('learnVocabsResult'), 'POST');
+
 return $router;
