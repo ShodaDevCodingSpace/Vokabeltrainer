@@ -41,7 +41,7 @@
    
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
          $_SESSION['trueVocabsCount'] = $_SESSION['trueVocabsCount'] + 1;
-         array_push($_SESSION['tureVocabs'], $vocabs[$x]);
+         array_push($_SESSION['trueVocabs'], $vocabs[$x]);
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
