@@ -6,7 +6,14 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
+   $countera = count(array()) + 1 . '/' . $_SESSION['maxVocabs'];
+   $counterb = count($_SESSION['usedIds'] : array()) . '/' . $_SESSION['maxVocabs'];
+   if(!isset($_SESSION['usedIds'])) {
+      $counter = $countera;
+   } else {
+      $counter = $counterb;
+   }
+   // $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
    /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
