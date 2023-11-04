@@ -6,8 +6,8 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 1 . '/' . $_SESSION['maxVocabs'];
-   /*$htmlGoOnForm = '
+   $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
+   $counter = count($usedIds) . '/' . $_SESSION['maxVocabs'];   /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
       </form>
