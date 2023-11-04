@@ -6,7 +6,7 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   isset($_SESSION['usedIds']) ? $counter = count($_SESSION['usedIds']) + 1 . '/' . $_SESSION['maxVocabs'] : $counter = count(array()) + 2 . '/' . $_SESSION['maxVocabs'];
+   isset($_SESSION['usedIds']) ? $counter = count($_SESSION['usedIds']) + 1 . '/' . $_SESSION['maxVocabs'] : $counter = count(array()) . '/' . $_SESSION['maxVocabs'];
 
    // $counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
    /*$htmlGoOnForm = '
