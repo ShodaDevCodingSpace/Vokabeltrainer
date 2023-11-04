@@ -67,7 +67,12 @@
          $x++;
          $_SESSION['x'] = $x;
       }
+
       $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
+
+      if($x == $maxVocabs) {
+         header("Location: https://shoda.lol/learnVocabsResult.php");
+      }
    }
 ?>
 
