@@ -8,8 +8,7 @@
    //isset($_SESSION['usedIds']) ? $counter = count($_SESSION['usedIds']) + 1 . '/' . $_SESSION['maxVocabs'] : $counter = count(array()) . '/' . $_SESSION['maxVocabs'];
    //$counter = count(isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array()) + 2 . '/' . $_SESSION['maxVocabs'];
 
-   $x = isset($_SESSION['x']) ? $_SESSION['x'] : 0;
-   $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
+
    /*$htmlGoOnForm = '
       <form method="POST">
          <input type="submit" name="GoOn" value="Nächstes">
@@ -33,8 +32,10 @@
       header("Location: https://shoda.lol");
    }
 
+   $x = isset($_SESSION['x']) ? $_SESSION['x'] : 0;
+   $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
+   
    if(isset($_POST['submitVocab'])) {
-      $_SESSION['x'] = $_SESSION['x'] + 1;
       $enteredVocab = $_POST['enteredVocab'];
       $usedIds = isset($_SESSION['usedIds']) ? $_SESSION['usedIds'] : array();
       $vocabs = $_SESSION['vocabs'];
@@ -42,9 +43,9 @@
       if(!isset($_SESSION['enteredVocabs']) || empty($_SESSION['enteredVocabs'])) {
          $_SESSION['enteredVocabs'] = array();
       }
-
+   
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'true';
+         $_SESSION['enteredVocabs'][$x] = 'true';
          $truefalsecase = 'Richtig!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -52,9 +53,10 @@
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
-
+         $x++;
+         $_SESSION['x'] = $x;
       } else {
-         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'false';
+         $_SESSION['enteredVocabs'][$x] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
@@ -62,11 +64,10 @@
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
+         $x++;
+         $_SESSION['x'] = $x;
       }
-
-      if (count($usedIds) + 1 == $maxVocabs) {
-         
-      }
+      $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
    }
 ?>
 
