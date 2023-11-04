@@ -52,7 +52,7 @@
          $x++;
          $_SESSION['x'] = $x;
       } else {
-         $_SESSION['falseVocabsCount'] = $_SESSION['falseVocabsCount'] + 1;
+         $_SESSION['falseVocabsCount'] + 1;
          array_push($_SESSION['falseVocabs'], $vocabs[$x]);
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
