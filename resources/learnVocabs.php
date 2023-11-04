@@ -40,19 +40,17 @@
       }
 
       if($enteredVocab === $vocabs[count($usedIds)]['german']) {
-         $_SESSION['x'] = $_SESSION['x'] + 1;
-         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'true';
+         $_SESSION['enteredVocabs'][$x] = 'true';
          $truefalsecase = 'Richtig!';
+         $x++;
          if (empty($usedIds)) {
             $usedIds = array(0);
          } else {
             array_push($usedIds, count($usedIds));
          }
          $_SESSION['usedIds'] = $usedIds;
-
       } else {
-         $_SESSION['x'] = $_SESSION['x'] + 1;
-         $_SESSION['enteredVocabs'][$_SESSION['x']] = 'false';
+         $_SESSION['enteredVocabs'][$x] = 'false';
          $truefalsecase = 'Falsch!';
          if (empty($usedIds)) {
             $usedIds = array(0);
