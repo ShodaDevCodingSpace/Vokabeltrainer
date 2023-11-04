@@ -3,6 +3,7 @@
 
    //vars
    $x = $_SESSION['x'];
+   $_SESSION['enteredVocabs'] = array();
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
