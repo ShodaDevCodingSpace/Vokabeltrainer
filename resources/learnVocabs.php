@@ -7,6 +7,8 @@
    $errorNoVocabs = 0;
    $trueVocabs = $_SESSION['trueVocabs'] = array();
    $falseVocabs = $_SESSION['falseVocabs'] = array();
+   $_SESSION['trueVocabsCount'] = 0;
+   $_SESSION['falseVocabsCount'] = 0;
    $htmlInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
