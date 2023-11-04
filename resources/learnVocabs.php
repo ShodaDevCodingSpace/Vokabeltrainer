@@ -2,7 +2,7 @@
    session_start();
 
    //vars
-   $_SESSION['x'] = array(0);
+   $_SESSION['x'] = 0;
    $x = $_SESSION['x'];
    $truefalsecase = 0;
    $english = 0;
