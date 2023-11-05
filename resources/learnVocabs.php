@@ -5,7 +5,8 @@
    $truefalsecase = 0;
    $english = 0;
    $errorNoVocabs = 0;
-   $_SESSION['trueVocabs'] = array();
+   settype($_SESSION['trueVocabs'], "array");
+   settype($_SESSION['falseVocabs'], "array");
    settype($_SESSION['trueVocabsCount'], "integer");
    settype($_SESSION['falseVocabsCount'], "integer");
    $htmlInputForm = '
