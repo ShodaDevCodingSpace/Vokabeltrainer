@@ -34,7 +34,7 @@ if ($falseVocabsCount === 0) {
 ?>
 
 <?= $resultCount ?>
-<h2>Richtige Antworten:</h2>
+<h3>Richtige Antworten:</h3>
 <?= $trueTable ?>
-<h2>Falsche Antworten:</h2>
+<h3>Falsche Antworten:</h3>
 <?= $falseTable ?>
