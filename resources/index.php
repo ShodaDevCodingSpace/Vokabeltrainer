@@ -59,6 +59,8 @@
    <input type="submit" name="en25" value="25">
 </form>
 
+<!--
 <form method="POST">
    <input type="submit" name="endsession" value="Session beenden">
 </form>
+-->
