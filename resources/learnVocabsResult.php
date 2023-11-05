@@ -13,14 +13,14 @@ $resultCount = "Richtig: $trueVocabsCount/10 <br>Falsch: $falseVocabsCount/10<br
 
 // Kopieren Sie die richtigen und falschen Antworten in die entsprechenden Arrays.
 for ($i = 0; $i < $trueVocabsCount; $i++) {
-    $trueVocabsReturn[] = $trueVocabs[$i]['english'] . ' (' . $trueVocabs[$i]['german'] . ')';
+    $trueVocabsReturn[] = '<tr><td>' . $trueVocabs[$i]['english'] . '</td><td>' . $trueVocabs[$i]['german'] . '</td></tr>';
 }
 
 for ($i = 0; $i < $falseVocabsCount; $i++) {
-    $falseVocabsReturn[] = $falseVocabs[$i]['english'] . ' (' . $falseVocabs[$i]['german'] . ')';
+    $falseVocabsReturn[] = '<tr><td>' . $falseVocabs[$i]['english'] . '</td><td>' . $falseVocabs[$i]['german'] . '</td></tr>';
 }
 
-$result = "Richtig: " . implode(', ', $trueVocabsReturn) . "<br>Falsch: " . implode(', ', $falseVocabsReturn) . "<br>";
+$result = "<table><thead><tr><th>Englisch</th><th>Deutsch</th></tr></thead><tbody>" . implode('', $trueVocabsReturn) . implode('', $falseVocabsReturn) . "</tbody></table>";
 
 ?>
 
