@@ -20,9 +20,21 @@ for ($i = 0; $i < $falseVocabsCount; $i++) {
     $falseVocabsReturn[] = '<tr><td>' . $falseVocabs[$i]['english'] . '</td><td>' . $falseVocabs[$i]['german'] . '</td></tr>';
 }
 
-$result = "<table><thead><tr><th>Englisch</th><th>Deutsch</th></tr></thead><tbody>" . implode('', $trueVocabsReturn) . implode('', $falseVocabsReturn) . "</tbody></table>";
+$trueTable = "<table><thead><tr><th>Englisch</th><th>Deutsch</th></tr></thead><tbody>" . implode('', $trueVocabsReturn) . "</tbody></table>";
+$falseTable = "<table><thead><tr><th>Englisch</th><th>Deutsch</th></tr></thead><tbody>" . implode('', $falseVocabsReturn) . "</tbody></table>";
+
+if ($trueVocabsCount === 0) {
+    $trueTable = "Keine richtigen Antworten eingegeben.";
+}
+
+if ($falseVocabsCount === 0) {
+    $falseTable = "Keine falschen Antworten eingegeben.";
+}
 
 ?>
 
 <?= $resultCount ?>
-<?= $result ?>
+<h2>Richtige Antworten:</h2>
+<?= $trueTable ?>
+<h2>Falsche Antworten:</h2>
+<?= $falseTable ?>
