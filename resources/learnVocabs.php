@@ -10,7 +10,7 @@
    settype($_SESSION['falseVocabs'], "array");
    settype($_SESSION['trueVocabsCount'], "integer");
    settype($_SESSION['falseVocabsCount'], "integer");
-   
+
    $htmlInputForm = '
       <form method="POST">
          <input type="text" name="enteredVocab" placeholder="Übersetzung hier eingeben" required>
@@ -85,10 +85,6 @@
    } else {
       $errorNoVocabs = "No vocabs found.";
 }
-var_dump($_SESSION['trueVocabs']);
-var_dump($_SESSION['falseVocabs']);
-var_dump($_SESSION['trueVocabsCount']);
-var_dump($_SESSION['falseVocabsCount']);
 ?>
 <?= $english; ?>
 <br>
