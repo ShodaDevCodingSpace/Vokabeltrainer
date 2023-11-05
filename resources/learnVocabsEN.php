@@ -3,7 +3,7 @@
 
    //vars
    $truefalsecase = 0;
-   $english = 0;
+   $german = 0;
    $errorNoVocabs = 0;
 
    settype($_SESSION['trueVocabs'], "array");
@@ -41,7 +41,7 @@
          $_SESSION['enteredVocabs'] = array();
       }
    
-      if($enteredVocab === $vocabs[count($usedIds)]['german']) {
+      if($enteredVocab === $vocabs[count($usedIds)]['english']) {
          $_SESSION['trueVocabsCount'] = $_SESSION['trueVocabsCount'] + 1;
          array_push($_SESSION['trueVocabs'], $vocabs[$x]);
          $truefalsecase = 'Richtig!';
@@ -70,7 +70,7 @@
       $counter = ($x + 1) . '/' . $_SESSION['maxVocabs'];
 
       if($x == $maxVocabs) {
-         header("Location: https://shoda.lol/learnVocabsResult");
+         header("Location: https://shoda.lol/learnVocabsResultEN");
       }
    }
 ?>
@@ -78,15 +78,15 @@
 <?php 
    if (isset($_SESSION['vocabs']) && is_array($_SESSION['vocabs']) && count($_SESSION['vocabs']) > 0) {
       if (empty($_SESSION['usedIds']) || count($_SESSION['usedIds']) == 0) {
-         $english = $_SESSION['vocabs'][0]['english'];
+         $german = $_SESSION['vocabs'][0]['german'];
       } else {
-         $english = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['english'];
+         $german = $_SESSION['vocabs'][count($_SESSION['usedIds'])]['german'];
       }
    } else {
       $errorNoVocabs = "No vocabs found.";
 }
 ?>
-<?= $english; ?>
+<?= $german; ?>
 <br>
 <?= $htmlInputForm; ?>
 <?= $counter; ?>

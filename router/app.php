@@ -9,15 +9,25 @@ $router->register('/', new BaseController('index'), 'GET');
 $router->register('/', new BaseController('index'), 'POST');
 
 
-//GET /learnVocabs
-$router->register('/learnVocabs', new BaseController('learnVocabs'), 'GET');
-//POST /learnVocabs
-$router->register('/learnVocabs', new BaseController('learnVocabs'), 'POST');
+//GET /learnVocabsDE
+$router->register('/learnVocabsDE', new BaseController('learnVocabsDE'), 'GET');
+//POST /learnVocabsDE
+$router->register('/learnVocabsDE', new BaseController('learnVocabsDE'), 'POST');
+
+//GET /learnVocabsEN
+$router->register('/learnVocabsEN', new BaseController('learnVocabsEN'), 'GET');
+//POST /learnVocabsEN
+$router->register('/learnVocabsEN', new BaseController('learnVocabsEN'), 'POST');
 
 
-//GET /learnVocabsResult
-$router->register('/learnVocabsResult', new BaseController('learnVocabsResult'), 'GET');
-//POST /learnVocabsResult
-$router->register('/learnVocabsResult', new BaseController('learnVocabsResult'), 'POST');
+//GET /learnVocabsResultDE
+$router->register('/learnVocabsResultDE', new BaseController('learnVocabsResultDE'), 'GET');
+//POST /learnVocabsResultDE
+$router->register('/learnVocabsResultDE', new BaseController('learnVocabsResultDE'), 'POST');
+
+//GET /learnVocabsResultEN
+$router->register('/learnVocabsResultEN', new BaseController('learnVocabsResultEN'), 'GET');
+//POST /learnVocabsResultEN
+$router->register('/learnVocabsResultEN', new BaseController('learnVocabsResultEN'), 'POST');
 
 return $router;
