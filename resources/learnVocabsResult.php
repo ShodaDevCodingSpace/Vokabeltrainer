@@ -23,6 +23,11 @@
       Richtig: $trueVocabsReturn <br>
       Falsch: $falseVocabsReturn <br>
    ";
+
+   var_dump($_SESSION['trueVocabsCount']);
+   var_dump($_SESSION['falseVocabsCount']);
+   var_dump($_SESSION['trueVocabs']);
+   var_dump($_SESSION['falseVocabs']);
 ?>
 
 <?= $resultCount ?>
