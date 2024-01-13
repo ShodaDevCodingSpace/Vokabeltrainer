@@ -3,8 +3,8 @@
    class MySQL
    {
       private $host = "localhost";
-      private $username = "admin__";
-      private $password = "Qzd47!s61";
+      private $username = "";
+      private $password = "";
       private $dbname = "Vokabeltrainer";
       private $conn;
 
